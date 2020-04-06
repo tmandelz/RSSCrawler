@@ -1,0 +1,11 @@
+{
+  "version": 2,
+  "dgSpecHash": "fyz4LhoQY8pNR3gR7KPnx+U+/gUQzi6ej64+s1qrR/SbZwZh4u4qgZbsgOUlf7Tf4bY8eW5bnsZ4f1x2Jp386w==",
+  "success": true,
+  "projectFilePath": "C:\\Users\\tmand\\source\\repos\\NZZCrawler\\Webcrawler.Service\\Webcrawler.Service\\Webcrawler.Service.csproj",
+  "expectedPackageFiles": [
+    "C:\\Users\\tmand\\.nuget\\packages\\microsoft.netcore.platforms\\1.1.0\\microsoft.netcore.platforms.1.1.0.nupkg.sha512",
+    "C:\\Users\\tmand\\.nuget\\packages\\netstandard.library\\2.0.3\\netstandard.library.2.0.3.nupkg.sha512"
+  ],
+  "logs": []
+}
