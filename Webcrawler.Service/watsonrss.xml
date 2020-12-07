@@ -1,0 +1,28 @@
+<feed xml:lang="de">
+	<title>Watson: News ohne Bla Bla</title>
+	<subtitle/>
+	<logo>
+https://www.watson.ch/media/img/main/logos/logo_watson_black.png
+	</logo>
+	<link rel="self" href="https://www.watson.ch/api/1.0/rss/index.xml"/>
+	<id>https://www.watson.ch/api/1.0/rss/index.xml</id>
+	<icon>
+https://www.watson.ch/media/img/main/icons/apple_touch_icon_72.png
+	</icon>
+	<updated>2020-04-06T13:03:39Z</updated>
+	<entry>
+		<published>2020-04-06T12:55:21Z</published>
+		<updated>2020-04-06T12:55:21Z</updated>
+		<title>Putins Schicksal und die Corona-Krise</title>
+		<content type="html">
+			</content>
+			<description>
+Nach 20 Jahren an der Macht droht die Corona-Pandemie ein Desaster für den russischen Präsidenten zu werden.
+			</description>
+			<link type="text/html" rel="alternate" href="https://www.watson.ch/international/russland/510025721-corona-krise-in-russland-2020-wird-putins-schicksalsjahr"/>
+			<id>https://www.watson.ch/!510025721</id>
+			<author>
+				<name>Ulf mauder / dpa</name>
+			</author>
+		</entry>
+	</feed>
