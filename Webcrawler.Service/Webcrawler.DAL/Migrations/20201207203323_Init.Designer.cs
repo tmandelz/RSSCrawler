@@ -10,23 +10,23 @@ using Webcrawler.DAL;
 namespace Webcrawler.DAL.Migrations
 {
     [DbContext(typeof(DatabaseContext))]
-    [Migration("20201206160237_2nd")]
-    partial class _2nd
+    [Migration("20201207203323_Init")]
+    partial class Init
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
-                .HasAnnotation("ProductVersion", "3.1.3")
+                .UseIdentityColumns()
                 .HasAnnotation("Relational:MaxIdentifierLength", 128)
-                .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+                .HasAnnotation("ProductVersion", "5.0.0");
 
             modelBuilder.Entity("Webcrawler.DAL.Author", b =>
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("int")
-                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+                        .UseIdentityColumn();
 
                     b.Property<string>("Name")
                         .HasColumnType("nvarchar(max)");
@@ -70,6 +70,21 @@ namespace Webcrawler.DAL.Migrations
                     b.HasKey("Id");
 
                     b.ToTable("Entries");
+                });
+
+            modelBuilder.Entity("Webcrawler.DAL.Provider", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int")
+                        .UseIdentityColumn();
+
+                    b.Property<string>("Name")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("Providers");
                 });
 #pragma warning restore 612, 618
         }

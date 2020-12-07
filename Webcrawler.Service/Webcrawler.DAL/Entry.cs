@@ -20,6 +20,9 @@ namespace Webcrawler.DAL
         public DateTimeOffset PublishDate { get; set; }
         public DateTimeOffset LastUpdatedTime { get; set; }
 
+
+
+
         public static bool entryExists(string entryId)
         {
             List<Entry> entries = new List<Entry>();
@@ -38,7 +41,7 @@ namespace Webcrawler.DAL
             }
         }
 
-        public static void createEntry(SyndicationItem item)
+        public static void createEntry(SyndicationItem item,Provider provider)
         {
             try
             {
@@ -74,7 +77,7 @@ namespace Webcrawler.DAL
                         EntryId = item.Id,
                         PublishDate = item.PublishDate,
                         Summary = item.Title.Text,
-                        LastUpdatedTime = item.LastUpdatedTime
+                        LastUpdatedTime = item.LastUpdatedTime,
                     };
                     db.Entries.Add(entry);
 

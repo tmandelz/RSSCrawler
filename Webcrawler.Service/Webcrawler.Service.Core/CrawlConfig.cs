@@ -7,10 +7,7 @@ namespace Webcrawler.Service.Core
         public CrawlConfig()
         {
         }
-
-        public string ApplicationName { get; set; }
-
-        public List<RSSFeed> rssFeeds = new List<RSSFeed>();
+        public List<RSSFeed> RSS { get; set; }
     }
 
     public class RSSFeed

@@ -8,11 +8,11 @@ namespace Webcrawler.Service.Core
 {
     internal class Webcrawler
     {
-        private string rssFeedField;
+        private readonly RSSFeed RSSFeed;
 
-        public Webcrawler(string rssFeed)
+        public Webcrawler(RSSFeed RSSFeed)
         {
-            rssFeedField = rssFeed;
+            this.RSSFeed = RSSFeed;
         }
 
         public void Crawl()
@@ -20,7 +20,7 @@ namespace Webcrawler.Service.Core
             try
             {
                 // get http content from rss feed
-                string url = rssFeedField;
+                string url = RSSFeed.FeedURL;
                 XmlReader reader = XmlReader.Create(url);
                 SyndicationFeed feed = SyndicationFeed.Load(reader);
                 reader.Close();
@@ -33,10 +33,15 @@ namespace Webcrawler.Service.Core
                         Console.WriteLine($"More than one Author");
                     }
 
+                    Provider provider = new Provider()
+                    {
+                        Name = RSSFeed.FeedProvider
+                    };
+
                     if (!Entry.entryExists(item.Id))
                     {
                         //save to db
-                        Entry.createEntry(item);
+                        Entry.createEntry(item, provider);
                     }
                 }
             }

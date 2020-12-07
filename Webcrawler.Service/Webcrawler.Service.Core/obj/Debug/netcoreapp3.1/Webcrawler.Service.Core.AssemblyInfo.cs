@@ -11,6 +11,7 @@
 using System;
 using System.Reflection;
 
+[assembly: Microsoft.Extensions.Configuration.UserSecrets.UserSecretsIdAttribute("dotnet-Webcrawler.Service.Core-686A8593-6195-4338-8414-80C8868B78BB")]
 [assembly: System.Reflection.AssemblyCompanyAttribute("Webcrawler.Service.Core")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
