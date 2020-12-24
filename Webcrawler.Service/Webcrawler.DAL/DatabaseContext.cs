@@ -22,5 +22,6 @@ namespace Webcrawler.DAL
         public DbSet<Author> Authors { get; set; }
         public DbSet<Category> Categories { get; set; }
         public DbSet<Provider> Providers { get; set; }
+        public DbSet<Content> Contents { get; set; }
     }
 }
