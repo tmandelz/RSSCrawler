@@ -1,0 +1,12 @@
+C:\Users\tmand\source\repos\NZZCrawler\Webcrawler.Service\Webcrawler.DAL\bin\Debug\netcoreapp3.1\Webcrawler.DAL.deps.json
+C:\Users\tmand\source\repos\NZZCrawler\Webcrawler.Service\Webcrawler.DAL\bin\Debug\netcoreapp3.1\Webcrawler.DAL.runtimeconfig.json
+C:\Users\tmand\source\repos\NZZCrawler\Webcrawler.Service\Webcrawler.DAL\bin\Debug\netcoreapp3.1\Webcrawler.DAL.runtimeconfig.dev.json
+C:\Users\tmand\source\repos\NZZCrawler\Webcrawler.Service\Webcrawler.DAL\bin\Debug\netcoreapp3.1\Webcrawler.DAL.dll
+C:\Users\tmand\source\repos\NZZCrawler\Webcrawler.Service\Webcrawler.DAL\bin\Debug\netcoreapp3.1\Webcrawler.DAL.pdb
+C:\Users\tmand\source\repos\NZZCrawler\Webcrawler.Service\Webcrawler.DAL\obj\Debug\netcoreapp3.1\Webcrawler.DAL.AssemblyInfoInputs.cache
+C:\Users\tmand\source\repos\NZZCrawler\Webcrawler.Service\Webcrawler.DAL\obj\Debug\netcoreapp3.1\Webcrawler.DAL.AssemblyInfo.cs
+C:\Users\tmand\source\repos\NZZCrawler\Webcrawler.Service\Webcrawler.DAL\obj\Debug\netcoreapp3.1\Webcrawler.DAL.csproj.CoreCompileInputs.cache
+C:\Users\tmand\source\repos\NZZCrawler\Webcrawler.Service\Webcrawler.DAL\obj\Debug\netcoreapp3.1\Webcrawler.DAL.dll
+C:\Users\tmand\source\repos\NZZCrawler\Webcrawler.Service\Webcrawler.DAL\obj\Debug\netcoreapp3.1\Webcrawler.DAL.pdb
+C:\Users\tmand\source\repos\NZZCrawler\Webcrawler.Service\Webcrawler.DAL\obj\Debug\netcoreapp3.1\Webcrawler.DAL.genruntimeconfig.cache
+C:\Users\tmand\source\repos\NZZCrawler\Webcrawler.Service\Webcrawler.DAL\obj\Debug\netcoreapp3.1\Webcrawler.DAL.csprojAssemblyReference.cache

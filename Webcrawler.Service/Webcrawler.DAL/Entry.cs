@@ -8,10 +8,10 @@ using System.ServiceModel.Syndication;
 
 namespace Webcrawler.DAL
 {
-    public class Entry
+    public class Entry : BaseEntity
     {
         [Key]
-        [DatabaseGeneratedAttribute(DatabaseGeneratedOption.Identity)]
+        [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
         public string Id { get; set; }
 
         public string EntryId { get; set; }
@@ -20,29 +20,46 @@ namespace Webcrawler.DAL
 
         public DateTimeOffset PublishDate { get; set; }
         public DateTimeOffset LastUpdatedTime { get; set; }
+        public ICollection<Content> Contents { get; set; }
+        public ICollection<Category> Categories { get; set; }
+        public ICollection<Author> Authors { get; set; }
+        public Provider Provider { get; set; }
 
-        public static bool entryExists(string entryId)
+        public Entry()
         {
-            List<Entry> entries = new List<Entry>();
+            UpdatedDate = DateTimeOffset.Now;
+            CreatedDate = DateTimeOffset.Now;
+        }
+
+        public Entry(string entryId)
+        {
+            Id = entryId;
+            UpdatedDate = DateTimeOffset.Now;
+        }
+
+        public Entry entryExists(string entryId)
+        {
+            Entry entry = null;
             using (var db = new DatabaseContext())
             {
-                entries = db.Entries.Where(entry => entry.EntryId == entryId).ToList();
+                entry = db.Entries.Where(entry => entry.EntryId == entryId).FirstOrDefault();
             }
 
-            if (entries.Count() > 0)
+            if (entry != null)
             {
-                return true;
+                return entry;
             }
             else
             {
-                return false;
+                return null;
             }
         }
 
-        public static void createEntry(SyndicationItem item, Provider provider)
+        public void createEntry(SyndicationItem item, Provider provider, List<Author> authors)
         {
             try
             {
+                //TODO:primaryKey duplicate
                 using (var db = new DatabaseContext())
                 {
                     Entry entry = new Entry
@@ -51,6 +68,7 @@ namespace Webcrawler.DAL
                         PublishDate = item.PublishDate,
                         Summary = item.Title.Text,
                         LastUpdatedTime = item.LastUpdatedTime,
+                        Authors = authors
                     };
                     db.Entries.Add(entry);
 
@@ -61,34 +79,6 @@ namespace Webcrawler.DAL
             {
                 //TODO send Mail on error
             }
-        }
-
-        public void AddAuthor(SyndicationItem item)
-        {
-            //Check if Author exists
-            foreach (var author in item.Authors)
-            {
-                if (!Author.authorExists(author.Name))
-                {
-                    Author.createAuthor(author.Name);
-                }
-            }
-
-            //TODO: add Auth to this Entry
-        }
-
-        public void AddCategory(SyndicationItem item)
-        {
-            //Check if Category exists
-            foreach (var category in item.Categories)
-            {
-                if (!Category.categoryExists(category.Name))
-                {
-                    Category.createCategory(category.Name);
-                }
-            }
-
-            //TODO: add Cat to this Entry
         }
 
         public void AddContent(string url)

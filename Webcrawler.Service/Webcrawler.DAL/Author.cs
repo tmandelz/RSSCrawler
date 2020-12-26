@@ -1,43 +1,61 @@
-﻿using System.Collections.Generic;
+﻿using System;
 using System.ComponentModel.DataAnnotations.Schema;
 using System.Linq;
 
 namespace Webcrawler.DAL
 {
-    public class Author
+    public class Author : BaseEntity
     {
         [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
-        public int Id { get; set; }
+        public string Id { get; set; }
 
+        public Entry Entry { get; set; }
         public string Name { get; set; }
 
-        public static bool authorExists(string authorName)
+        public Author()
         {
-            List<Author> authors = new List<Author>();
-            using (var db = new DatabaseContext())
+            CreatedDate = DateTimeOffset.Now;
+            UpdatedDate = DateTimeOffset.Now;
+        }
+
+        public Author(string authorId)
+        {
+            Id = authorId;
+            UpdatedDate = DateTimeOffset.Now;
+        }
+
+        public Author authorExists(string authorName)
+        {
+            Author author = null;
+
+            using (DatabaseContext context = new DatabaseContext())
             {
-                authors = db.Authors.Where(author => author.Name == authorName).ToList();
+                author = context.Authors.Where(a => a.Name == authorName).FirstOrDefault();
             }
 
-            if (authors.Count() > 0)
+            if (author != null)
             {
-                return true;
+                return author;
             }
             else
             {
-                return false;
+                return null;
             }
         }
 
-        public static void createAuthor(string authorName)
+        public Author createAuthor(string authorName)
         {
-            Author author = new Author();
-            author.Name = authorName;
-
-            using (var db = new DatabaseContext())
+            using (DatabaseContext databaseContext = new DatabaseContext())
             {
-                db.Authors.Add(author);
-                db.SaveChanges();
+                Author author = new Author()
+                {
+                    Name = authorName,
+                };
+
+                databaseContext.Authors.Add(author);
+                databaseContext.SaveChanges();
+
+                return databaseContext.Authors.OrderByDescending(p => p.UpdatedDate).FirstOrDefault();
             }
         }
     }

@@ -17,34 +17,86 @@ namespace Webcrawler.DAL.Migrations
             modelBuilder
                 .UseIdentityColumns()
                 .HasAnnotation("Relational:MaxIdentifierLength", 128)
-                .HasAnnotation("ProductVersion", "5.0.0");
+                .HasAnnotation("ProductVersion", "5.0.1");
 
             modelBuilder.Entity("Webcrawler.DAL.Author", b =>
                 {
-                    b.Property<int>("Id")
+                    b.Property<string>("Id")
                         .ValueGeneratedOnAdd()
-                        .HasColumnType("int")
-                        .UseIdentityColumn();
+                        .HasColumnType("nvarchar(450)");
+
+                    b.Property<DateTimeOffset>("CreatedDate")
+                        .HasColumnType("datetimeoffset");
+
+                    b.Property<string>("EntryId")
+                        .HasColumnType("nvarchar(450)");
 
                     b.Property<string>("Name")
                         .HasColumnType("nvarchar(max)");
 
+                    b.Property<DateTimeOffset>("UpdatedDate")
+                        .HasColumnType("datetimeoffset");
+
                     b.HasKey("Id");
+
+                    b.HasIndex("EntryId");
 
                     b.ToTable("Authors");
                 });
 
             modelBuilder.Entity("Webcrawler.DAL.Category", b =>
                 {
-                    b.Property<int>("Id")
-                        .HasColumnType("int");
+                    b.Property<string>("Id")
+                        .HasColumnType("nvarchar(450)");
+
+                    b.Property<DateTimeOffset>("CreatedDate")
+                        .HasColumnType("datetimeoffset");
+
+                    b.Property<string>("EntryId")
+                        .HasColumnType("nvarchar(450)");
 
                     b.Property<string>("Name")
                         .HasColumnType("nvarchar(max)");
 
+                    b.Property<DateTimeOffset>("UpdatedDate")
+                        .HasColumnType("datetimeoffset");
+
                     b.HasKey("Id");
 
+                    b.HasIndex("EntryId");
+
                     b.ToTable("Categories");
+                });
+
+            modelBuilder.Entity("Webcrawler.DAL.Content", b =>
+                {
+                    b.Property<string>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("nvarchar(450)");
+
+                    b.Property<DateTimeOffset>("CreatedDate")
+                        .HasColumnType("datetimeoffset");
+
+                    b.Property<string>("EntryId")
+                        .HasColumnType("nvarchar(450)");
+
+                    b.Property<string>("HTMLContent")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<DateTime>("SaveDate")
+                        .HasColumnType("datetime2");
+
+                    b.Property<string>("URL")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<DateTimeOffset>("UpdatedDate")
+                        .HasColumnType("datetimeoffset");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("EntryId");
+
+                    b.ToTable("Contents");
                 });
 
             modelBuilder.Entity("Webcrawler.DAL.Entry", b =>
@@ -52,6 +104,9 @@ namespace Webcrawler.DAL.Migrations
                     b.Property<string>("Id")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("nvarchar(450)");
+
+                    b.Property<DateTimeOffset>("CreatedDate")
+                        .HasColumnType("datetimeoffset");
 
                     b.Property<string>("EntryId")
                         .HasColumnType("nvarchar(max)");
@@ -65,6 +120,9 @@ namespace Webcrawler.DAL.Migrations
                     b.Property<string>("Summary")
                         .HasColumnType("nvarchar(max)");
 
+                    b.Property<DateTimeOffset>("UpdatedDate")
+                        .HasColumnType("datetimeoffset");
+
                     b.HasKey("Id");
 
                     b.ToTable("Entries");
@@ -72,17 +130,76 @@ namespace Webcrawler.DAL.Migrations
 
             modelBuilder.Entity("Webcrawler.DAL.Provider", b =>
                 {
-                    b.Property<int>("Id")
+                    b.Property<string>("Id")
                         .ValueGeneratedOnAdd()
-                        .HasColumnType("int")
-                        .UseIdentityColumn();
+                        .HasColumnType("nvarchar(450)");
+
+                    b.Property<DateTimeOffset>("CreatedDate")
+                        .HasColumnType("datetimeoffset");
+
+                    b.Property<string>("EntryId")
+                        .HasColumnType("nvarchar(450)");
 
                     b.Property<string>("Name")
                         .HasColumnType("nvarchar(max)");
 
+                    b.Property<DateTimeOffset>("UpdatedDate")
+                        .HasColumnType("datetimeoffset");
+
                     b.HasKey("Id");
 
+                    b.HasIndex("EntryId")
+                        .IsUnique()
+                        .HasFilter("[EntryId] IS NOT NULL");
+
                     b.ToTable("Providers");
+                });
+
+            modelBuilder.Entity("Webcrawler.DAL.Author", b =>
+                {
+                    b.HasOne("Webcrawler.DAL.Entry", "Entry")
+                        .WithMany("Authors")
+                        .HasForeignKey("EntryId");
+
+                    b.Navigation("Entry");
+                });
+
+            modelBuilder.Entity("Webcrawler.DAL.Category", b =>
+                {
+                    b.HasOne("Webcrawler.DAL.Entry", "Entry")
+                        .WithMany("Categories")
+                        .HasForeignKey("EntryId");
+
+                    b.Navigation("Entry");
+                });
+
+            modelBuilder.Entity("Webcrawler.DAL.Content", b =>
+                {
+                    b.HasOne("Webcrawler.DAL.Entry", "Entry")
+                        .WithMany("Contents")
+                        .HasForeignKey("EntryId");
+
+                    b.Navigation("Entry");
+                });
+
+            modelBuilder.Entity("Webcrawler.DAL.Provider", b =>
+                {
+                    b.HasOne("Webcrawler.DAL.Entry", "Entry")
+                        .WithOne("Provider")
+                        .HasForeignKey("Webcrawler.DAL.Provider", "EntryId");
+
+                    b.Navigation("Entry");
+                });
+
+            modelBuilder.Entity("Webcrawler.DAL.Entry", b =>
+                {
+                    b.Navigation("Authors");
+
+                    b.Navigation("Categories");
+
+                    b.Navigation("Contents");
+
+                    b.Navigation("Provider");
                 });
 #pragma warning restore 612, 618
         }

@@ -1,5 +1,6 @@
-﻿using Microsoft.Extensions.Options;
-using System;
+﻿using System;
+using System.Collections.Generic;
+using System.Net;
 using System.ServiceModel.Syndication;
 using System.Xml;
 using Webcrawler.DAL;
@@ -26,27 +27,96 @@ namespace Webcrawler.Service.Core
                 reader.Close();
                 foreach (SyndicationItem item in feed.Items)
                 {
-                    // Check if Entry exists
-
-                    if (item.Authors.Count > 1)
+                    //Check if provider exists
+                    Provider provider = new Provider();
+                    provider = provider.providerExists(RSSFeed.FeedProvider);
+                    if (provider == null)
                     {
-                        Console.WriteLine($"More than one Author");
+                        //Create Provider
+                        provider = new Provider();
+                        provider = provider.createProvider(RSSFeed.FeedProvider);
                     }
 
-                    Provider provider = new Provider()
+                    //Author
+                    List<Author> authors = new List<Author>();
+                    foreach (var authorRSS in item.Authors)
                     {
-                        Name = RSSFeed.FeedProvider
-                    };
+                        Author author = new Author();
 
-                    if (!Entry.entryExists(item.Id))
+                        if (author.authorExists(authorRSS.Name) == null)
+                        {
+                            //Create Author
+                            author = new Author();
+                            author = author.createAuthor(authorRSS.Name);
+                        }
+                        else
+                        {
+                            //TOOO: update Entry
+                        }
+
+                        authors.Add(author);
+                    }
+
+                    //Categories
+                    List<Category> categories = new List<Category>();
+                    foreach (var categoryRSS in item.Categories)
                     {
-                        //save to db
-                        Entry.createEntry(item, provider);
+                        Category category = new Category();
+
+                        if (category.categoryExists(categoryRSS.Name) == null)
+                        {
+                            //Create Author
+                            category = new Category();
+                            category = category.createCategory(categoryRSS.Name);
+                        }
+                        else
+                        {
+                            //TOOO: update Entry
+                        }
+
+                        categories.Add(category);
+                    }
+
+                    //Content
+                    List<Content> contents = new List<Content>();
+                    foreach (var linkRSS in item.Links)
+                    {
+                        Content content = new Content();
+                        content = content.createContent(linkRSS.Uri.AbsoluteUri, GetHTMLContent(linkRSS.Uri.AbsoluteUri));
+                        contents.Add(content);
+                    }
+
+                    // Entry handling
+                    Entry entry = new Entry();
+
+                    if (entry.entryExists(item.Id) == null)
+                    {
+                        //Create Entry
+                        entry = new Entry()
+                        {
+                            Authors = authors,
+                            Categories = categories,
+                            Provider = provider,
+                            Contents = contents
+                        };
+                        entry.createEntry(item, provider, authors);
+                    }
+                    else
+                    {
+                        //TOOO: update Entry
                     }
                 }
             }
             catch (Exception ex)
             {
+            }
+        }
+
+        private string GetHTMLContent(string Url)
+        {
+            using (WebClient webClient = new WebClient())
+            {
+                return webClient.DownloadString(Url);
             }
         }
     }

@@ -1,45 +1,61 @@
-﻿using System.Collections.Generic;
-using System.ComponentModel.DataAnnotations;
+﻿using System;
 using System.ComponentModel.DataAnnotations.Schema;
 using System.Linq;
 
 namespace Webcrawler.DAL
 {
-    public class Category
+    public class Category : BaseEntity
     {
         [DatabaseGenerated(DatabaseGeneratedOption.None)]
-        public int Id { get; set; }
+        public string Id { get; set; }
 
+        public Entry Entry { get; set; }
         public string Name { get; set; }
 
-        public static bool categoryExists(string categoryName)
+        public Category()
         {
-            List<Category> categories = new List<Category>();
-            using (var db = new DatabaseContext())
+            CreatedDate = DateTimeOffset.Now;
+            UpdatedDate = DateTimeOffset.Now;
+        }
+
+        public Category(string categoryId)
+        {
+            Id = categoryId;
+            UpdatedDate = DateTimeOffset.Now;
+        }
+
+        public Category categoryExists(string categoryName)
+        {
+            Category category = null;
+
+            using (DatabaseContext context = new DatabaseContext())
             {
-                categories = db.Categories.Where(category => category.Name == categoryName).ToList();
+                category = context.Categories.Where(c => c.Name == categoryName).FirstOrDefault();
             }
 
-            if (categories.Count() > 0)
+            if (category != null)
             {
-                return true;
+                return category;
             }
             else
             {
-                return false;
+                return null;
             }
         }
 
-        public static void createCategory(string categoryName)
+        public Category createCategory(string categoryName)
         {
-            Category category = new Category();
-            category.Name = categoryName;
-
-            using (var db = new DatabaseContext())
+            using (DatabaseContext databaseContext = new DatabaseContext())
             {
-                db.Categories.Add(category);
+                Category category = new Category()
+                {
+                    Name = categoryName,
+                };
 
-                db.SaveChanges();
+                databaseContext.Categories.Add(category);
+                databaseContext.SaveChanges();
+
+                return databaseContext.Categories.OrderByDescending(p => p.UpdatedDate).FirstOrDefault();
             }
         }
     }
