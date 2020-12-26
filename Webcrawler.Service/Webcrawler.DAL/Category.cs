@@ -52,10 +52,11 @@ namespace Webcrawler.DAL
                     Name = categoryName,
                 };
 
-                databaseContext.Categories.Add(category);
-                databaseContext.SaveChanges();
+                //databaseContext.Categories.Add(category);
+                //databaseContext.SaveChanges();
 
-                return databaseContext.Categories.OrderByDescending(p => p.UpdatedDate).FirstOrDefault();
+                //return databaseContext.Categories.OrderByDescending(p => p.UpdatedDate).FirstOrDefault();
+                return category;
             }
         }
     }

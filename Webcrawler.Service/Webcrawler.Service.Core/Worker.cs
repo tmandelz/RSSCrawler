@@ -35,7 +35,7 @@ namespace Webcrawler.Service.Core
 
                 foreach (var item in CrawlConfig.RSS)
                 {
-                    webcrawler = new Webcrawler(item);
+                    webcrawler = new Webcrawler(item,_logger);
                     webcrawler.Crawl();
                 }
                 await Task.Delay(10000, stoppingToken);

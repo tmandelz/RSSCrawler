@@ -1,20 +1,23 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\tmand\\source\\repos\\NZZCrawler\\Webcrawler.Service\\Webcrawler.DAL\\Webcrawler.DAL.csproj": {}
+    "C:\\Users\\Tom\\OneDrive\\Dokumente\\GitHub\\RSSCrawler\\Webcrawler.Service\\Webcrawler.DAL\\Webcrawler.DAL.csproj": {}
   },
   "projects": {
-    "C:\\Users\\tmand\\source\\repos\\NZZCrawler\\Webcrawler.Service\\Webcrawler.DAL\\Webcrawler.DAL.csproj": {
+    "C:\\Users\\Tom\\OneDrive\\Dokumente\\GitHub\\RSSCrawler\\Webcrawler.Service\\Webcrawler.DAL\\Webcrawler.DAL.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\tmand\\source\\repos\\NZZCrawler\\Webcrawler.Service\\Webcrawler.DAL\\Webcrawler.DAL.csproj",
+        "projectUniqueName": "C:\\Users\\Tom\\OneDrive\\Dokumente\\GitHub\\RSSCrawler\\Webcrawler.Service\\Webcrawler.DAL\\Webcrawler.DAL.csproj",
         "projectName": "Webcrawler.DAL",
-        "projectPath": "C:\\Users\\tmand\\source\\repos\\NZZCrawler\\Webcrawler.Service\\Webcrawler.DAL\\Webcrawler.DAL.csproj",
-        "packagesPath": "C:\\Users\\tmand\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\tmand\\source\\repos\\NZZCrawler\\Webcrawler.Service\\Webcrawler.DAL\\obj\\",
+        "projectPath": "C:\\Users\\Tom\\OneDrive\\Dokumente\\GitHub\\RSSCrawler\\Webcrawler.Service\\Webcrawler.DAL\\Webcrawler.DAL.csproj",
+        "packagesPath": "C:\\Users\\Tom\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\Tom\\OneDrive\\Dokumente\\GitHub\\RSSCrawler\\Webcrawler.Service\\Webcrawler.DAL\\obj\\",
         "projectStyle": "PackageReference",
+        "fallbackFolders": [
+          "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
+        ],
         "configFilePaths": [
-          "C:\\Users\\tmand\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\Tom\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [

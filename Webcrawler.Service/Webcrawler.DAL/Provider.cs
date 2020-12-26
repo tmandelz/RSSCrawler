@@ -53,10 +53,11 @@ namespace Webcrawler.DAL
                     Name = providerName,
                 };
 
-                databaseContext.Providers.Add(provider);
-                databaseContext.SaveChanges();
+                //databaseContext.Providers.Add(provider);
+                //databaseContext.SaveChanges();
 
-                return databaseContext.Providers.OrderByDescending(p => p.UpdatedDate).FirstOrDefault();
+                //return databaseContext.Providers.OrderByDescending(p => p.UpdatedDate).FirstOrDefault();
+                return provider;
             }
         }
     }

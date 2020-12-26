@@ -32,10 +32,11 @@ namespace Webcrawler.DAL
                     SaveDate = DateTime.Now,
                 };
 
-                databaseContext.Contents.Add(content);
-                databaseContext.SaveChanges();
+                //databaseContext.Contents.Add(content);
+                //databaseContext.SaveChanges();
 
-                return databaseContext.Contents.OrderByDescending(p => p.UpdatedDate).FirstOrDefault();
+                //return databaseContext.Contents.OrderByDescending(p => p.UpdatedDate).FirstOrDefault();
+                return content;
             }
         }
     }

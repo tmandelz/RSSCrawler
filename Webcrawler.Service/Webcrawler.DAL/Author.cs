@@ -52,10 +52,11 @@ namespace Webcrawler.DAL
                     Name = authorName,
                 };
 
-                databaseContext.Authors.Add(author);
-                databaseContext.SaveChanges();
+                //databaseContext.Authors.Add(author);
+                //databaseContext.SaveChanges();
 
-                return databaseContext.Authors.OrderByDescending(p => p.UpdatedDate).FirstOrDefault();
+                //return databaseContext.Authors.OrderByDescending(p => p.UpdatedDate).FirstOrDefault();
+                return author;
             }
         }
     }

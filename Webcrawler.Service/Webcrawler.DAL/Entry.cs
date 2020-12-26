@@ -55,7 +55,7 @@ namespace Webcrawler.DAL
             }
         }
 
-        public void createEntry(SyndicationItem item, Provider provider, List<Author> authors)
+        public void createEntry(SyndicationItem item, Provider provider, List<Author> authors, List<Category> categories, List<Content> contents)
         {
             try
             {
@@ -68,7 +68,10 @@ namespace Webcrawler.DAL
                         PublishDate = item.PublishDate,
                         Summary = item.Title.Text,
                         LastUpdatedTime = item.LastUpdatedTime,
-                        Authors = authors
+                        Authors = authors,
+                        Categories = categories,
+                        Provider = provider,
+                        Contents = contents
                     };
                     db.Entries.Add(entry);
 

@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Microsoft.Extensions.Logging;
+using System;
 using System.Collections.Generic;
 using System.Net;
 using System.ServiceModel.Syndication;
@@ -10,14 +11,16 @@ namespace Webcrawler.Service.Core
     internal class Webcrawler
     {
         private readonly RSSFeed RSSFeed;
-
-        public Webcrawler(RSSFeed RSSFeed)
+        private readonly ILogger<Worker> _logger;
+        public Webcrawler(RSSFeed RSSFeed, ILogger<Worker> logger)
         {
+            _logger = logger;
             this.RSSFeed = RSSFeed;
         }
 
         public void Crawl()
         {
+            _logger.LogInformation($"Start Crawling!");
             try
             {
                 // get http content from rss feed
@@ -35,6 +38,10 @@ namespace Webcrawler.Service.Core
                         //Create Provider
                         provider = new Provider();
                         provider = provider.createProvider(RSSFeed.FeedProvider);
+                    }
+                    else
+                    {
+                        provider = null;
                     }
 
                     //Author
@@ -92,14 +99,8 @@ namespace Webcrawler.Service.Core
                     if (entry.entryExists(item.Id) == null)
                     {
                         //Create Entry
-                        entry = new Entry()
-                        {
-                            Authors = authors,
-                            Categories = categories,
-                            Provider = provider,
-                            Contents = contents
-                        };
-                        entry.createEntry(item, provider, authors);
+                        entry = new Entry();
+                        entry.createEntry(item, provider, authors, categories, contents);
                     }
                     else
                     {
