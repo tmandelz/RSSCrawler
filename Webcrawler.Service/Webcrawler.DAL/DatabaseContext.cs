@@ -4,17 +4,18 @@ namespace Webcrawler.DAL
 {
     public class DatabaseContext : DbContext
     {
-        private readonly string connectionString = "Server=localhost\\SQLEXPRESS; Database=WebCrawler; User Id=sa; Password=123456;";
+        private readonly string connectionString = "server=localhost;user id=webcrawler;password=h&K543#KCnGM2G@YUHuN;database=WebCrawler";
 
         public DatabaseContext()
         {
+
         }
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
             if (!optionsBuilder.IsConfigured)
             {
-                optionsBuilder.UseSqlServer(connectionString);
+                optionsBuilder.UseMySql(connectionString);
             }
         }
 

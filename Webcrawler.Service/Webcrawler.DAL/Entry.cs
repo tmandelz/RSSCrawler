@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 using System.Linq;
-using System.Net;
+using System.Net.Mail;
 using System.ServiceModel.Syndication;
 
 namespace Webcrawler.DAL
@@ -81,17 +81,10 @@ namespace Webcrawler.DAL
             catch (Exception ex)
             {
                 //TODO send Mail on error
+
+
             }
         }
 
-        public void AddContent(string url)
-        {
-            string contentHTML;
-            using (WebClient client = new WebClient())
-            {
-                contentHTML = client.DownloadString(url);
-            }
-            //TODO: add Content to this Entry
-        }
     }
 }

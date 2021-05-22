@@ -1,9 +1,6 @@
-using Microsoft.EntityFrameworkCore;
-using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.Hosting;
 using Microsoft.Extensions.Logging;
 using System;
-using System.Collections.Generic;
 using System.Threading;
 using System.Threading.Tasks;
 using Webcrawler.DAL;
@@ -28,14 +25,14 @@ namespace Webcrawler.Service.Core
             {
                 using (DatabaseContext db = new DatabaseContext())
                 {
-                    db.Database.Migrate();
+                    db.Database.EnsureCreated();
                 };
 
                 _logger.LogInformation("Worker running at: {time}", DateTimeOffset.Now);
 
                 foreach (var item in CrawlConfig.RSS)
                 {
-                    webcrawler = new Webcrawler(item,_logger);
+                    webcrawler = new Webcrawler(item, _logger);
                     webcrawler.Crawl();
                 }
                 await Task.Delay(10000, stoppingToken);

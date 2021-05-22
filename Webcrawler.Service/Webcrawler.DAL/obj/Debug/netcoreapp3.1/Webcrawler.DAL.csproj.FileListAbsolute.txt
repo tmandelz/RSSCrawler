@@ -15,10 +15,10 @@ C:\Users\Tom\OneDrive\Dokumente\GitHub\RSSCrawler\Webcrawler.Service\Webcrawler.
 C:\Users\Tom\OneDrive\Dokumente\GitHub\RSSCrawler\Webcrawler.Service\Webcrawler.DAL\bin\Debug\netcoreapp3.1\Webcrawler.DAL.runtimeconfig.dev.json
 C:\Users\Tom\OneDrive\Dokumente\GitHub\RSSCrawler\Webcrawler.Service\Webcrawler.DAL\bin\Debug\netcoreapp3.1\Webcrawler.DAL.dll
 C:\Users\Tom\OneDrive\Dokumente\GitHub\RSSCrawler\Webcrawler.Service\Webcrawler.DAL\bin\Debug\netcoreapp3.1\Webcrawler.DAL.pdb
-C:\Users\Tom\OneDrive\Dokumente\GitHub\RSSCrawler\Webcrawler.Service\Webcrawler.DAL\obj\Debug\netcoreapp3.1\Webcrawler.DAL.csprojAssemblyReference.cache
 C:\Users\Tom\OneDrive\Dokumente\GitHub\RSSCrawler\Webcrawler.Service\Webcrawler.DAL\obj\Debug\netcoreapp3.1\Webcrawler.DAL.AssemblyInfoInputs.cache
 C:\Users\Tom\OneDrive\Dokumente\GitHub\RSSCrawler\Webcrawler.Service\Webcrawler.DAL\obj\Debug\netcoreapp3.1\Webcrawler.DAL.AssemblyInfo.cs
 C:\Users\Tom\OneDrive\Dokumente\GitHub\RSSCrawler\Webcrawler.Service\Webcrawler.DAL\obj\Debug\netcoreapp3.1\Webcrawler.DAL.csproj.CoreCompileInputs.cache
 C:\Users\Tom\OneDrive\Dokumente\GitHub\RSSCrawler\Webcrawler.Service\Webcrawler.DAL\obj\Debug\netcoreapp3.1\Webcrawler.DAL.dll
 C:\Users\Tom\OneDrive\Dokumente\GitHub\RSSCrawler\Webcrawler.Service\Webcrawler.DAL\obj\Debug\netcoreapp3.1\Webcrawler.DAL.pdb
 C:\Users\Tom\OneDrive\Dokumente\GitHub\RSSCrawler\Webcrawler.Service\Webcrawler.DAL\obj\Debug\netcoreapp3.1\Webcrawler.DAL.genruntimeconfig.cache
+C:\Users\Tom\OneDrive\Dokumente\GitHub\RSSCrawler\Webcrawler.Service\Webcrawler.DAL\obj\Debug\netcoreapp3.1\Webcrawler.DAL.csprojAssemblyReference.cache

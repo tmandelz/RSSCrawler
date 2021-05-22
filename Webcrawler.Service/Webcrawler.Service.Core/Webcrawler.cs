@@ -110,6 +110,10 @@ namespace Webcrawler.Service.Core
             }
             catch (Exception ex)
             {
+
+                _logger.LogInformation($"Error while Crawling! {Environment.NewLine}  {ex.Message}");
+
+
             }
         }
 

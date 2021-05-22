@@ -1,0 +1,11 @@
+C:\Users\Tom\OneDrive\Dokumente\GitHub\RSSCrawler\Webcrawler.Service\Webcrawler.DAL\obj\Debug\net5.0\Webcrawler.DAL.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\Tom\OneDrive\Dokumente\GitHub\RSSCrawler\Webcrawler.Service\Webcrawler.DAL\obj\Debug\net5.0\Webcrawler.DAL.AssemblyInfoInputs.cache
+C:\Users\Tom\OneDrive\Dokumente\GitHub\RSSCrawler\Webcrawler.Service\Webcrawler.DAL\obj\Debug\net5.0\Webcrawler.DAL.AssemblyInfo.cs
+C:\Users\Tom\OneDrive\Dokumente\GitHub\RSSCrawler\Webcrawler.Service\Webcrawler.DAL\obj\Debug\net5.0\Webcrawler.DAL.csproj.CoreCompileInputs.cache
+C:\Users\Tom\OneDrive\Dokumente\GitHub\RSSCrawler\Webcrawler.Service\Webcrawler.DAL\bin\Debug\net5.0\Webcrawler.DAL.deps.json
+C:\Users\Tom\OneDrive\Dokumente\GitHub\RSSCrawler\Webcrawler.Service\Webcrawler.DAL\bin\Debug\net5.0\Webcrawler.DAL.dll
+C:\Users\Tom\OneDrive\Dokumente\GitHub\RSSCrawler\Webcrawler.Service\Webcrawler.DAL\bin\Debug\net5.0\ref\Webcrawler.DAL.dll
+C:\Users\Tom\OneDrive\Dokumente\GitHub\RSSCrawler\Webcrawler.Service\Webcrawler.DAL\bin\Debug\net5.0\Webcrawler.DAL.pdb
+C:\Users\Tom\OneDrive\Dokumente\GitHub\RSSCrawler\Webcrawler.Service\Webcrawler.DAL\obj\Debug\net5.0\Webcrawler.DAL.dll
+C:\Users\Tom\OneDrive\Dokumente\GitHub\RSSCrawler\Webcrawler.Service\Webcrawler.DAL\obj\Debug\net5.0\ref\Webcrawler.DAL.dll
+C:\Users\Tom\OneDrive\Dokumente\GitHub\RSSCrawler\Webcrawler.Service\Webcrawler.DAL\obj\Debug\net5.0\Webcrawler.DAL.pdb
